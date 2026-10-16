@@ -1,38 +1,51 @@
-# 🎮 Game Glitch Investigator: The Impossible Guesser
+# Game Glitch Investigator
 
-## 🚨 The Situation
+## Description
 
-You asked an AI to build a simple "Number Guessing Game" using Streamlit.
-It wrote the code, ran away, and now the game is unplayable. 
+A Streamlit number-guessing game supplied as an AI110 debugging exercise. The checked-in version is intentionally incomplete: `logic_utils.py` contains `NotImplementedError` stubs, and the app still has incorrect hints, inconsistent guess types, and incomplete reset behavior.
 
-- You can't win.
-- The hints lie to you.
-- The secret number seems to have commitment issues.
+## Dependencies
 
-## 🛠️ Setup
+- Python 3 and pip.
+- `streamlit>=1.21.0`, `altair<5`, and `pytest`, as listed in `requirements.txt`.
 
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run the broken app: `python -m streamlit run app.py`
+## Technologies
 
-## 🕵️‍♂️ Your Mission
+Python, Streamlit, and pytest.
 
-1. **Play the game.** Open the "Developer Debug Info" tab in the app to see the secret number. Try to win.
-2. **Find the State Bug.** Why does the secret number change every time you click "Submit"? Ask ChatGPT: *"How do I keep a variable from resetting in Streamlit when I click a button?"*
-3. **Fix the Logic.** The hints ("Higher/Lower") are wrong. Fix them.
-4. **Refactor & Test.** - Move the logic into `logic_utils.py`.
-   - Run `pytest` in your terminal.
-   - Keep fixing until all tests pass!
+## Setup
 
-## 📝 Document Your Experience
+```bash
+git clone https://github.com/bryan3342/ai110-module1show-gameglitchinvestigator-starter.git
+cd ai110-module1show-gameglitchinvestigator-starter
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+On Windows, activate the environment with `.venv\Scripts\activate` instead.
 
-## 📸 Demo
+## Features
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- Easy, Normal, and Hard difficulty controls.
+- Guess submission, score display, attempt history, and a developer debug panel.
+- Three tests for winning, high, and low guesses.
+- A [reflection worksheet](reflection.md) for documenting bugs, fixes, and testing.
 
-## 🚀 Stretch Features
+The exercise is to investigate the behavior, move logic into `logic_utils.py`, and make the tests pass. The tests expect `check_guess` to return a status string, while the current app function returns a tuple. These interfaces need to be reconciled during the exercise.
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+## Commands to run
+
+```bash
+python -m streamlit run app.py
+python -m pytest
+```
+
+The test command is expected to fail against the unimplemented helper functions.
+
+## Contributors
+
+- Andrew Burke, credited in the starter's Git history.
+- [Jamila Cocchiola (@jamjamgobambam)](https://github.com/jamjamgobambam), credited in the starter's Git history.
+
+This copy is hosted by [@bryan3342](https://github.com/bryan3342). The inspected history contains no Bryan-authored implementation commits.
